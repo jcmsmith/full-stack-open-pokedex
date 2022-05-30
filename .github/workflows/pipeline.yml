@@ -36,3 +36,4 @@ jobs:
           healthcheck: "https://morning-gorge-87186.herokuapp.com/health"
           checkstring: "ok"
           delay: 5
+          rollbackonhealthcheckfailed: true
