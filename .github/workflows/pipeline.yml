@@ -39,7 +39,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "morning-gorge-87186"
           heroku_email: "jeremycmsmith+heroku@gmail.com"
-          healthcheck: "https://morning-gorge-87186.herokuapp.com/health"
+          healthcheck: "https://morning-gorge-87186.herokuapp.com/ping"
           checkstring: "ok"
           delay: 5
           rollbackonhealthcheckfailed: true
