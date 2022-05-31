@@ -43,6 +43,20 @@ jobs:
           checkstring: "ok"
           delay: 5
           rollbackonhealthcheckfailed: true
+      - name: Success notification
+        uses: rjstone/discord-webhook-notify@v1
+        if: success()
+        with:
+          severity: info
+          details: New build deployed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Failure notification
+        uses: rjstone/discord-webhook-notify@v1
+        if: cancelled()
+        with:
+          severity: error
+          details: Build failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
